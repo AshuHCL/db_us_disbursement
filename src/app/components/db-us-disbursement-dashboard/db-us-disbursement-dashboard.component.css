@@ -1,0 +1,10 @@
+table {
+  width: 100%;
+}
+.data-table{
+  overflow-y: auto;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
