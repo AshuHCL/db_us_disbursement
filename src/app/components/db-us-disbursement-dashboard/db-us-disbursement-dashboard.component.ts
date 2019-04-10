@@ -30,7 +30,7 @@ export interface listType {
   viewValue: string;
 }
 
-var ELEMENT_DATA: Issues[];
+var ELEMENT_DATA: any;
 
 @Component({
   selector: 'app-db-us-disbursement-dashboard',
@@ -40,10 +40,10 @@ var ELEMENT_DATA: Issues[];
 
 export class DbUsDisbursementDashboardComponent implements OnInit {
 
-  // Initialisations
+  // __________Class Properties Initialisations___________
+  dataSource: any;
   displayedColumns: string[] = [];
   defaultSelectedDate: String = '';
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
   selection = new SelectionModel<Issues>(true, []);
   dates: Dates[] = [];
   listType: listType[] = [
@@ -53,6 +53,9 @@ export class DbUsDisbursementDashboardComponent implements OnInit {
   ];
   defaultSelectedListType = this.listType[0].value;
   
+  // _________________Class Member Methods__________________
+
+  // Method to reset to default settings for dashboard
   applicationDefaults() {
     this.displayedColumns = ['select', 'accountNumber', 'chkNum',
     'amount', 'Dates', 'status',
@@ -107,12 +110,17 @@ export class DbUsDisbursementDashboardComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
   constructor(private issueService: IssueService) {
-    ELEMENT_DATA = this.issueService.displayCreatedIssue();
+    this.issueService.displayCreatedIssue().subscribe(
+      data => {
+        ELEMENT_DATA = data;
+        this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+    })
+    this.applicationDefaults();
   }
 
   ngOnInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.applicationDefaults();
+    
   }
 }

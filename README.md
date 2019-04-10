@@ -1,27 +1,24 @@
-# DbUsDisbursement
+DB US Disbursement UI
+===============
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+Steps for running your project on local machine: 
 
-## Development server
+•	Install NodeJS in your system.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+•	Install Node CLI globally in your system.
 
-## Code scaffolding
+•	Install Github in your system.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+•	Create a local folder for UI project.
 
-## Build
+•	Open command line and clone the above repository.
+        i.e. git clone http://10.119.162.25:8080/git/disbursement/disbui.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+•	Go to the cloned folder, and run npm install (this may take couple of minutes).
 
-## Running unit tests
+•	After the local dependency installation is complete, run “npm start” 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+•	Open the running project in your browser at http://localhost:4200
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For any issues and concerns, contact me on ashutosh.p@hcl.com / 7053592528

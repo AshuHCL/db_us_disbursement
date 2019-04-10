@@ -1,6 +1,5 @@
-declare var require: any;
 import { Injectable } from '@angular/core';
-const created_issues : any = require('src/app/mocked-data/created_issues.json');
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +7,9 @@ const created_issues : any = require('src/app/mocked-data/created_issues.json');
 export class IssueService {
 
   displayCreatedIssue () {
-    return created_issues;
+  	return this.http.get('/assets/mocked-data/created_issues.json');
   }
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
   }
 }

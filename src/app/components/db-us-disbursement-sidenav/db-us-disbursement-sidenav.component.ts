@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-db-us-disbursement-sidenav',
@@ -21,7 +22,7 @@ export class DbUsDisbursementSidenavComponent implements OnInit {
   //   document.getElementById("menu-button").style.display = "block";
   // }
 
-  constructor() {
+  constructor( private router: Router) {
   }
 
   ngOnInit() {

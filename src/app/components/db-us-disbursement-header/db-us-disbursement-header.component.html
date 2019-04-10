@@ -1,25 +1,56 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="assets/db_logo.png" alt="">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Login: <b>Welcome <i>Ashutosh!</i></b>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>Last Login: {{today | date:'fullDate'}}</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #EAF1F7;">
+  <a class="navbar-brand" [routerLink]="['dashboard']">
+    <img src="assets/db.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Deutsche Bank
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active dropdown">
+        <button mat-button [matMenuTriggerFor]="belowMenu1" #issueMenuTrigger="matMenuTrigger" (mouseenter)="issueMenuTrigger.openMenu()">Issue Management</button>
+        <mat-menu #belowMenu1="matMenu" yPosition="below">
+          <button [routerLink]="['issue-management/create-issue']" mat-menu-item>Create Issue</button>
+          <button [routerLink]="['issue-management/authorize-issues']" mat-menu-item>Authorize Issues</button>
+          <button [routerLink]="['issue-management/import-issues']" mat-menu-item>Import Issues</button>
+        </mat-menu>
+      </li>
+      <li class="nav-item active dropdown">
+        <button mat-button [matMenuTriggerFor]="belowMenu2" #exceptionMenuTrigger="matMenuTrigger" (mouseenter)="exceptionMenuTrigger.openMenu()">Exceptions</button>
+        <mat-menu #belowMenu2="matMenu" yPosition="below">
+          <button [routerLink]="['exception-management/create-exception']" mat-menu-item>Create Exception</button>
+        </mat-menu>
+      </li>
+      <li class="nav-item active dropdown">
+        <button mat-button [matMenuTriggerFor]="belowMenu3" #stopPaymentMenuTrigger="matMenuTrigger" (mouseenter)="stopPaymentMenuTrigger.openMenu()">Stop Payment</button>
+        <mat-menu #belowMenu3="matMenu" yPosition="below">
+          <button mat-menu-item>Stop Payment</button>
+        </mat-menu>
+      </li>
+      <li class="nav-item active dropdown">
+        <button mat-button [matMenuTriggerFor]="belowMenu4" #reportMenuTrigger="matMenuTrigger" (mouseenter)="reportMenuTrigger.openMenu()">Reports</button>
+        <mat-menu #belowMenu4="matMenu" yPosition="below">
+          <button mat-menu-item>Download Issue</button>
+        </mat-menu>
+      </li>
+      <li class="nav-item active dropdown">
+        <button mat-button [matMenuTriggerFor]="belowMenu5" #adminToolsMenuTrigger="matMenuTrigger" (mouseenter)="adminToolsMenuTrigger.openMenu()">Admin Tools</button>
+        <mat-menu #belowMenu5="matMenu" yPosition="below">
+          <button mat-menu-item>Tool 1</button>
+          <button mat-menu-item>Tool 2</button>
+        </mat-menu>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active dropdown">
+          <button mat-button [matMenuTriggerFor]="belowMenu5" #profileMenuTrigger="matMenuTrigger" (mouseenter)="profileMenuTrigger.openMenu()">Login: <b>Welcome <i>Ashutosh!</i></b></button>
+          <mat-menu #belowMenu5="matMenu" yPosition="below">
+            <button mat-menu-item>View Profile</button>
+            <button mat-menu-item>Logout</button>
+            <span mat-menu-item>Last Login: {{today | date:'fullDate'}}</span>
+          </mat-menu>
+        </li>
+      </ul>
+    </form>
+  </div>
+</nav>
